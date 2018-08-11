@@ -5,8 +5,11 @@ def dictionary
   
   dictionary_hash  = {
   "hello" => "hi", 
-  "to, two, too" => "2", 
-  "for, four" => "4",
+  "to" => "2",
+  "two" => "2",
+  "too" => "2", 
+  "for" => "4",
+  "four" => "4",
   "be" => "b",
   "at" => "@",
   "and" => "&"
@@ -16,12 +19,14 @@ end
 
 def word_substituter(tweet)
   arr = tweet.split
-  arr.each do |word|
+  arr.map do |word|
     # binding.pry
-    if word == dictionary.keys
-      word == dictionary.values
-      
+    if dictionary.keys.include?(word)
+      # binding.pry
+      word = dictionary[word]
+      binding.pry
+  
 end 
-end 
-arr.join(' ')
+end.join(' ')
+# arr.join(' ')
 end
